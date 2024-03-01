@@ -1,8 +1,14 @@
 import React from "react";
-import Country from "./user/components/Country.js";
-import City from "./user/components/City.js";
-import CountryFun from "./user/components/CountryFun.js";
-import CityFun from "./user/components/CityFun.js";
+import Country from "./user/components/Country";
+import City from "./user/components/City";
+import CountryFun from "./user/components/CountryFun";
+import CityFun from "./user/components/CityFun";
+import Counter from "./user/components/Counter";
+import CounterClassFun from "./user/components/CounterClassFun";
+
+
+
+
 
 
 function App() {
@@ -12,6 +18,8 @@ function App() {
       <City />
       <CountryFun />
       <CityFun />
+      <Counter />
+      <CounterClassFun />
     </>
   );
 }
