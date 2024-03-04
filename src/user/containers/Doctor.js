@@ -27,7 +27,7 @@ const doctorData = [{
 ]
 const Doctor = () => {
     return (
-        <div>
+        <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
             {
                 doctorData.map((v) => (
               <>

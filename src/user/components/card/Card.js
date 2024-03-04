@@ -7,22 +7,24 @@ const Card = ({ data, docdata }) => {
   console.log(docdata);
 
   return (
-    <>
-      <div className={Style.card}>
-        <h1>Name: {data ? data.name : docdata.name}</h1>
-        <h2>Price: {data ? data.price : ''}</h2>
-        <h3>Expiry: {data ? data.expiry : ''}</h3>
-        <h4>Desc: {data ? data.desc : ''}</h4>
-      </div>
+    <div className={Style.card}>
+      {data && (
+        <>
+          <h1>Name: {data.name}</h1>
+          <h2>Price: {data.price}</h2>
+          <h3>Expiry: {data.expiry}</h3>
+          <h4>Desc: {data.desc}</h4>
+        </>
+      )}
 
       {docdata && (
-        <div className={Style.card}>
+        <>
           <h1>Doctor Name: {docdata.name}</h1>
           <h2>Speciality: {docdata.speciality}</h2>
           <img src={docdata.image} alt="Doctor" />
-        </div>
+        </>
       )}
-    </>
+    </div>
   );
 };
 
