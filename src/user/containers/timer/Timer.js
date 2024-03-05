@@ -43,7 +43,7 @@ export default class timer extends Component {
     return (
       <div>
       <div className={style.timerContainer}>
-        <h1 className={style.timerHeading}>Timer</h1>
+        <h1 className={style.timerHeading}>Timer [Class Component]</h1>
         <h1 className={style.timerDisplay}>{this.state.time.toLocaleTimeString()}</h1>
       </div>
 
