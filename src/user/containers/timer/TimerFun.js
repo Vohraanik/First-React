@@ -7,14 +7,14 @@ function TimerFun(props) {
   const [time, setTime] = useState(new Date());
 
   // 2. Render phase
-  const click = () => {
+  const tick = () => {
     setTime(new Date());
   }
 
   // 3. useEffect block is executed once, similar to componentDidMount in class components
   useEffect(() => {
     // 4. Updating Phase: setInterval to repeatedly call click 
-    const timeRef = setInterval(click, 1000);
+    const timeRef = setInterval(tick, 1000);
 
     // 5. Unmount Phase: Cleanup function to clear the interval when the component is unmounted
     return () => {
