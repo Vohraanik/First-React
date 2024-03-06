@@ -25,9 +25,14 @@ function Products(props) {
     }
 
     const toggleDescription = (index) => {
-        const updatedProducts = [...filteredProducts];
-        updatedProducts[index].showFullDescription = !updatedProducts[index].showFullDescription;
-        setFilteredProducts(updatedProducts);
+        console.log(index);
+      const desc = index;
+
+      if (desc.length < 50) {
+        return desc;
+      } else {
+        return desc + '...';
+      }
     }
 
     const tittleMore = (title) => {
@@ -58,8 +63,8 @@ function Products(props) {
                                 <CardTitle tag="h5" className="mb-2">{tittleMore(v.title)}</CardTitle>
                                 <CardSubtitle className="mb-2 text-muted" tag="h6">${v.price}</CardSubtitle>
                                 <CardText>
-                                    {v.showFullDescription ? v.description : `${v.description.substring(0, 50)}...`}
-                                    <Button color="link" onClick={() => toggleDescription(index)}> {v.showFullDescription ? 'Read Less' : 'Read More'}</Button>
+                                   {toggleDescription(v.description)}
+                                
                                 </CardText>
                                 <Button color="primary" className="mt-auto">Add to Cart</Button>
                             </CardBody>
