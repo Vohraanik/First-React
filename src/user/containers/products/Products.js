@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Button,Card,CardBody,CardSubtitle,CardText,CardTitle,Input,Nav,NavItem,NavLink} from 'reactstrap';
-import './products.module.css'
-
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, Input } from 'reactstrap';
+import './products.module.css';
 
 function Products(props) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState('');
   const [sortProducts, setSortProducts] = useState('');
+  const [uniqueCat, setUniqueCat] = useState([]);
   const [category, setCategory] = useState('');
 
   const getData = async () => {
     const response = await fetch('https://fakestoreapi.com/products');
     const data = await response.json();
     setProducts(data);
+
+    let uniqueCat = [];
+
+    data.map((v) => {
+      if (!uniqueCat.includes(v.category)) {
+        uniqueCat.push(v.category);
+      }
+    });
+
+    setUniqueCat(uniqueCat);
   };
 
   useEffect(() => {
@@ -41,7 +51,6 @@ function Products(props) {
 
     if (category) {
       filteredData = sortedData.filter((v) => v.category === category);
-      console.log(filteredData);
     }
 
     return filteredData;
@@ -65,21 +74,19 @@ function Products(props) {
         <option value='az'>Products: A to Z</option>
         <option value='za'>Products: Z to A</option>
       </select>
-      <Nav>
-        <NavItem>
-          <NavLink className='category' onClick={() => setCategory('electronics')}>Electronics</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink className='category' onClick={() => setCategory('jewelery')}>Jewelry</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink className='category' onClick={() => setCategory("men's clothing")}>Men's clothing</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink className='category' onClick={() => setCategory("women's clothing")}>Women's clothing</NavLink>
-        </NavItem>
-      </Nav>
-
+      <Button outline style={{ backgroundColor: category === '' ? 'grey' : 'white' }} onClick={() => setCategory('')}>
+        All
+      </Button>
+      {uniqueCat.map((v, index) => (
+        <Button
+          style={{ backgroundColor: category === v ? 'grey' : 'white' }}
+          outline
+          onClick={() => setCategory(v)}
+          key={index}
+        >
+          {v}
+        </Button>
+      ))}
       <h1 className='text-center mb-4'>Products</h1>
       <div className='row'>
         {filteredData.map((v, index) => (
