@@ -9,6 +9,7 @@ import ComponentWILLMOUNT from "./user/components/lifeCycle/Mount.js";
 import Timer from "./user/containers/timer/Timer";
 import TimerFun from "./user/containers/timer/TimerFun";
 import Products from "./user/containers/products/Products";
+import Loading from "./user/containers/loading/Loading";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
     {/* <ComponentWILLMOUNT /> */}
     {/* <Timer/> */}
     {/* <TimerFun /> */}
-    <Products/>
+    {/* <Products/> */}
+    <Loading/>
     </>
   );
 }
