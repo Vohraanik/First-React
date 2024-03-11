@@ -1,29 +1,20 @@
-import React , { useState } from "react";
+import React from "react";
+import {Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Medicines from "./user/containers/medicines/Medicines"
-import Doctor from "./user/containers/doctor/Doctor";
-import SimpleComponent from "./user/components/lifeCycle/SimpleComponent ";
-import UpdateComponent from "./user/components/lifeCycle/UpdateComponent ";
-import ShouldUpdateComponent from "./user/components/lifeCycle/ShouldUpdateComponent";
-import ComponentWILLMOUNT from "./user/components/lifeCycle/Mount.js";
-import Timer from "./user/containers/timer/Timer";
-import TimerFun from "./user/containers/timer/TimerFun";
+import Header from "./user/components/Header/Header";
+import Home from "./user/containers/Home/Home";
 import Products from "./user/containers/products/Products";
-import Loading from "./user/containers/loading/Loading";
+import Contact from "./user/containers/Contact/Contact";
 
 function App() {
   return (
     <>
-    {/* <Medicines/>
-    <Doctor /> */}
-    {/* <SimpleComponent /> */}
-    {/* <UpdateComponent /> */}
-    {/* <ShouldUpdateComponent /> */}
-    {/* <ComponentWILLMOUNT /> */}
-    {/* <Timer/> */}
-    {/* <TimerFun /> */}
-    {/* <Products/> */}
-    <Loading/>
+      <Header />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/Products" element={<Products />} />
+        <Route exact path="/contact" element={<Contact />} />
+      </Routes>
     </>
   );
 }
