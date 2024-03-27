@@ -6,8 +6,11 @@ import Home from "./user/containers/Home/Home";
 import Products from "./user/containers/products/Products";
 import Contact from "./user/containers/Contact/Contact";
 import Counter from "./user/containers/Counter/Counter";
+import { Provider } from "react-redux";
+import { configureStore } from "./redux/store";
 
 function App() {
+  const store = configureStore();
   return (
     <>
       {/* <Header />
@@ -16,7 +19,9 @@ function App() {
         <Route exact path="/Products" element={<Products />} />
         <Route exact path="/contact" element={<Contact />} />
       </Routes> */}
-      <Counter />X
+      <Provider store={store}>
+      <Counter />
+      </Provider>
     </>
   );
 }

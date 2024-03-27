@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from "../reducer/ActionType";
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from "../ActionType";
 export const increment = ()=>(dispatch)=>{
     dispatch({type:INCREMENT_COUNTER});
 
